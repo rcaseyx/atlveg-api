@@ -1,0 +1,22 @@
+{
+  "name": "atlveg-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcaseyx/atlveg-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcaseyx/atlveg-api/issues"
+  },
+  "homepage": "https://github.com/rcaseyx/atlveg-api#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

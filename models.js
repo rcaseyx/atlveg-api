@@ -102,16 +102,6 @@ reviewSchema.methods.serialize = function() {
     }
 };
 
-reviewSchema.pre('find', function(next) {
-    this.populate('restaurant');
-    next();
-});
-
-reviewSchema.pre('findOne', function(next) {
-    this.populate('restaurant');
-    next();
-});
-
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 const Recipe = mongoose.model('Recipe', recipeSchema);
 const Chain = mongoose.model('Chain', chainSchema);

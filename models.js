@@ -102,10 +102,28 @@ reviewSchema.methods.serialize = function() {
     }
 };
 
+const postSchema = mongoose.Schema({
+    title: String,
+    image: String,
+    text: String,
+    author: String
+});
+
+postSchema.methods.serialize = function() {
+    return {
+        id: this._id,
+        title: this.title,
+        image: this.image,
+        text: this.text,
+        author: this.author
+    }
+};
+
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 const Recipe = mongoose.model('Recipe', recipeSchema);
 const Chain = mongoose.model('Chain', chainSchema);
 const Store = mongoose.model('Store', storeSchema);
 const Review = mongoose.model('Review', reviewSchema);
+const Post = mongoose.model('Post', postSchema);
 
-module.exports = { Restaurant, Recipe, Chain, Store, Review };
+module.exports = { Restaurant, Recipe, Chain, Store, Review, Post };

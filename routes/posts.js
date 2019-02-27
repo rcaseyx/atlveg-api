@@ -84,3 +84,5 @@ router.delete('/:id', jwtAuth, (req, res) => {
       .then(post => res.status(204).end())
       .catch(err => res.status(500).json({ error: 'Internal Server Error' }));
 });
+
+module.exports = router;

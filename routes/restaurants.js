@@ -73,7 +73,7 @@ router.post('/', jwtAuth, (req, res) => {
         category: req.body.category,
         favorite: req.body.favorite
     })
-        .then(movie => res.status(201).json(restaurant.serialize()))
+        .then(restaurant => res.status(201).json(restaurant.serialize()))
         .catch(err => {
             console.error(err);
             res.status(500).json({ error: 'Internal Server Error' });
@@ -104,7 +104,7 @@ router.put('/:id', jwtAuth, (req, res) => {
 
 router.delete('/:id', jwtAuth, (req, res) => {
     Restaurant.findByIdAndRemove(req.params.id)
-      .then(chain => res.status(204).end())
+      .then(restaurant => res.status(204).end())
       .catch(err => res.status(500).json({ error: 'Internal Server Error' }));
 });
 

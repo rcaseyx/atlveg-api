@@ -4,7 +4,7 @@ const router = express.Router();
 const passport = require('passport');
 mongoose.Promise = global.Promise;
 
-const { Recipe } = require('./models');
+const { Recipe } = require('../models');
 const { localStrategy, jwtStrategy } = require('./auth');
 
 passport.use(localStrategy);
@@ -57,6 +57,12 @@ router.post('/', jwtAuth, (req, res) => {
             console.error(err);
             res.status(500).json({ error: 'Internal Server Error' });
         });
+});
+
+router.delete('/:id', jwtAuth, (req, res) => {
+    Recipe.findByIdAndRemove(req.params.id)
+      .then(chain => res.status(204).end())
+      .catch(err => res.status(500).json({ error: 'Internal Server Error' }));
 });
 
 module.exports = router;

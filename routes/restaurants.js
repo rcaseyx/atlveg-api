@@ -88,10 +88,13 @@ router.put('/:id', jwtAuth, (req, res) => {
     }
 
     const toUpdate = {};
-    const fields = {'about', 'url', 'favorite'};
+    const fields = ['about', 'url', 'favorite'];
 
-    if (field in req.body) {
-        toUpdate[field] = req.body[field];
+    for (let i=0; i < fields.length; i++) {
+        const field = fields[i];
+        if (field in req.body) {
+            toUpdate[field] = req.body[field];
+        }
     }
 
     Restaurant.findByIdAndUpdate(req.params.id, { $set: toUpdate }, { new: true })

@@ -85,7 +85,7 @@ storeSchema.methods.serialize = function() {
 
 const reviewSchema = mongoose.Schema({
     title: String,
-    restaurant: {type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant'},
+    restaurant: String,
     image: String,
     text: String,
     rating: Number

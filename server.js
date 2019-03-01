@@ -16,9 +16,25 @@ app.use(
 
 mongoose.Promise = global.Promise;
 
-// set up routers here
-// need to figure out all routes
+const { router: usersRouter } = require('./users');
+const { router: authRouter } = require('./auth');
+const chainsRouter = require('./routes/chains');
+const contactRouter = require('./routes/contact');
+const postsRouter = require('./routes/posts');
+const recipesRouter = require('./routes/recipes');
+const restaurantsRouter = require('./routes/restaurants');
+const reviewsRouter = require('./routes/reviews');
+const storesRouter = require('./routes/stores');
 
+app.use('/users', usersRouter);
+app.use('/auth', authRouter);
+app.use('/chains', chainsRouter);
+app.use('/contact', contactRouter);
+app.use('/posts', postsRouter);
+app.use('/recipes', recipesRouter);
+app.use('/restaurants', restaurantsRouter);
+app.use('/reviews', reviewsRouter);
+app.use('/stores', storesRouter);
 app.use(morgan('common'));
 
 let server;
